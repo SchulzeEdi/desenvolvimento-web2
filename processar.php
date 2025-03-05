@@ -26,6 +26,7 @@
     <?php
     $metodo = $_SERVER['REQUEST_METHOD'];
     echo "<h3>Método utilizado: $metodo</h3>";
+
     echo "<h3>Dados do formulário:</h3>";
     if ($metodo === 'POST') {
         $dados = $_POST;
@@ -43,6 +44,14 @@
     } else {
         echo "<p>Nenhum dado recebido</p>";
     }
+    echo "<h3>Cabeçalho da Requisição HTTP:</h3>";
+    echo "<pre>";
+    foreach (getallheaders() as $nome => $valor) {
+        echo "$nome: $valor\n";
+    }
+    echo "</pre>";
+    ?>
+
     <p><a href="formulario.php">Voltar ao formulário</a></p>
 </body>
 </html>
